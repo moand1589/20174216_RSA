@@ -1,0 +1,30 @@
+sed 명령어
+
+기본적인 기능은 ed와 비슷하지만, ed는 입력 및 출력이 하나로 이루어지며, sed는 하나의 입력이 하나의 출력을 낸다.
+
+출력(p)
+sed -n '/abd/p' file.txt : 파일을 한줄씩 읽으면서 abd 문자를 찾으면 그 줄을 출력한다.
+
+치환(s)
+sed 's/addrass/address/' file.txt : addrass를 address로 바꾼다. 단, 원본파일을 바꾸지 않고 출력을 바꿔서 한다.
+sed 's/\t/\ /' list.txt : 탭을 엔터로 변환.
+sed 's/□□/□/' list.txt : ( □ 는 공백을 나타냄. ) 위의 구문은 한개이상의 공백을 하나의 공백으로 바꾼다.
+
+추가(insert)
+scriptfile - s/
+
+삭제(d)
+
+sed '/TD/d' 1.html : TD 문자가 포함된 줄을 삭제하여 출력
+sed '/Src/!d' 1.html : Src 문자가 있는 줄만 지우지 않는다.
+sed '1,2d' 1.html : 철번째 줄과 두번째 줄을 지운다.
+sed '/^$/d 1.html : 공백라인을 삭제
+
+awk 명령어
+
+awk '/west/' datafile : west가 있는 줄 출력
+awk '/^north/' datafile : north로 시작하는 줄 출력
+awk '/^(no | so)/' datafile : no 또는 so 로 시작하는 줄 출력
+
+awk '{ print $3, $2 }' datafile : datafile 리스트의 세 번째 와 두 번째 필드를 스페이스바로 띄어서 출력
+awk '{ print $3 $2 }' datafile : datafile 리스트의 세 번째 와 두 번째 필드를 붙여서 출력
